@@ -4,6 +4,7 @@
 :root {
   --primary-bg-color: #fff;
   --text-color: #000;
+  --accent-color: ;
 }
 
 /* GLOBAL */
@@ -83,4 +84,10 @@ body {
   text-decoration: none;
 }
 
-/* RETINA BGS *//*# sourceMappingURL=main.css.map */
+/* CONTAINER */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}/*# sourceMappingURL=main.css.map */
