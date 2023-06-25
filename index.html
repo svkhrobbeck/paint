@@ -16,10 +16,81 @@
 
   <body>
     <!-- MAIN CONTENT -->
-    <main class="main-content"></main>
+    <main class="main-content">
+      <section class="paint container">
+        <!-- DRAW BOARD -->
+        <section class="draw-board"></section>
+        <!-- /DRAW BOARD -->
+
+        <!-- TOOLS BOARD -->
+        <section class="tools-board">
+          <div class="tools-board__row">
+            <!-- SHAPES -->
+            <label class="title">Shakllar</label>
+            <ul class="tools-board__options list">
+              <li class="tools-board__option tool" data-rectangle>
+                <img class="tools-board__option-img" src="icons/rectangle.svg" alt="rectangle" />
+                <span class="tools-board__option-name">To'rtburchak</span>
+              </li>
+              <li class="tools-board__option tool" data-circle>
+                <img class="tools-board__option-img" src="icons/circle.svg" alt="circle" />
+                <span class="tools-board__option-name">Doira</span>
+              </li>
+              <li class="tools-board__option tool" data-triangle>
+                <img class="tools-board__option-img" src="icons/triangle.svg" alt="triangle" />
+                <span class="tools-board__option-name">Uchburchak</span>
+              </li>
+              <li class="tools-board__option" data-checkbox>
+                <input class="tools-board__option-checkbox" type="checkbox" id="fill-color" />
+                <label class="tools-board__option-name" for="fill-color">Rangni to'ldirish</label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- VARIANTS -->
+          <div class="tools-board__row">
+            <label class="title">Variantlar</label>
+            <ul class="tools-board__options list">
+              <li class="tools-board__option tool tools-board__option--active" data-brush>
+                <img class="tools-board__option-img" src="icons/brush.svg" alt="brush" />
+                <span class="tools-board__option-name">Chizish</span>
+              </li>
+              <li class="tools-board__option tool" data-eraser>
+                <img class="tools-board__option-img" src="icons/eraser.svg" alt="eraser" />
+                <span class="tools-board__option-name">O'chirg'ich</span>
+              </li>
+              <li class="tools-board__option">
+                <input type="range" data-size-slider min="1" max="30" value="5" />
+              </li>
+            </ul>
+          </div>
+
+          <!-- COLORS -->
+          <div class="tools-board__row tools-board__row--colors">
+            <label class="title">Ranglar</label>
+            <ul class="tools-board__options">
+              <li class="tools-board__option"></li>
+              <li class="tools-board__option tools-board__option--selected"></li>
+              <li class="tools-board__option"></li>
+              <li class="tools-board__option"></li>
+              <li class="tools-board__option">
+                <input type="color" data-color-picker value="#4a98f7" />
+              </li>
+            </ul>
+          </div>
+
+          <!-- BUTTONS -->
+          <div class="tools-board__row tools-board__row--buttons">
+            <button class="tools-board__clear-canvas">O'chirish</button>
+            <button class="tools-board__save-image">Saqlash</button>
+          </div>
+        </section>
+        <!-- /TOOLS BOARD -->
+      </section>
+    </main>
     <!-- /MAIN CONTENT -->
 
     <!-- SCRIPTS -->
-    <!-- <script src="js/main.js"></script> -->
+    <script src="js/main.js"></script>
   </body>
 </html>
