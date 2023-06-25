@@ -2,9 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 /* CUSTOM PROPS */
 :root {
-  --primary-bg-color: #fff;
   --text-color: #000;
-  --accent-color: ;
+  --accent-color: #0095f3;
 }
 
 /* GLOBAL */
@@ -20,11 +19,6 @@ html {
   box-sizing: inherit;
 }
 
-*:focus {
-  outline: 2px dashed var(--text-color);
-  outline-offset: 3px;
-}
-
 img {
   display: block;
   max-width: 100%;
@@ -34,13 +28,13 @@ img {
 body {
   margin: 0;
   height: 100%;
-  font-family: "Arial", sans-serif;
+  font-family: "Poppins", "Arial", sans-serif;
   font-size: 16px;
+  font-weight: 500;
   line-height: 1.5;
   color: var(--text-color);
-  background-color: var(--primary-bg-color);
-  display: flex;
-  flex-direction: column;
+  background-color: rgb(2, 0, 36);
+  background-image: linear-gradient(to right, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 35%, rgb(0, 212, 255) 100%);
 }
 
 /* VISUALLY HIDDEN */
@@ -58,11 +52,6 @@ body {
   overflow: hidden;
 }
 
-/* MAIN CONTENT */
-.main-content {
-  flex-grow: 1;
-}
-
 /* BUTTON */
 .button {
   display: inline-block;
@@ -71,7 +60,12 @@ body {
   text-align: center;
   text-decoration: none;
   background-color: transparent;
-  padding: 0;
+  padding: 11px 0;
+  width: 100%;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-bottom: 13px;
+  border-radius: 4px;
 }
 
 .list {
@@ -84,10 +78,154 @@ body {
   text-decoration: none;
 }
 
+.title {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
 /* CONTAINER */
 .container {
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.paint {
+  height: 100vh;
+}
+
+.paint__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.section {
+  background-color: #fff;
+  max-height: 700px;
+  height: 100%;
+}
+
+.draw-board {
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.draw-board__canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.tools-board {
+  max-width: 210px;
+  width: 100%;
+  flex-grow: 1;
+  padding: 15px 22px 0;
+}
+
+.tools-board__row:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.tools-board__options {
+  margin: 10px 0 0 5px;
+}
+
+.tools-board__option-name {
+  color: #5a6168;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.tools-board__option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.tools-board__option:is(:hover, .tools-board__option--active) .tools-board__option-name {
+  color: #4a98f7;
+}
+.tools-board__option:is(:hover, .tools-board__option--active) img {
+  filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+}
+.tools-board__option:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.tools-board__option-checkbox {
+  accent-color: var(--accent-color);
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.tools-board__option-range {
+  width: 100%;
+  height: 5px;
+  margin-top: 10px;
+}
+
+.tools-board__row--colors .tools-board__options {
+  display: flex;
+  justify-content: space-between;
+}
+.tools-board__row--colors .tools-board__option {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-top: 3px;
+  position: relative;
+}
+.tools-board__row--colors .tools-board__option--white {
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+}
+.tools-board__row--colors .tools-board__option--white.tools-board__option--selected::before {
+  border-color: #ccc;
+}
+.tools-board__row--colors .tools-board__option--black {
+  background-color: #000;
+}
+.tools-board__row--colors .tools-board__option--red {
+  background-color: #e02020;
+}
+.tools-board__row--colors .tools-board__option--green {
+  background-color: #6dd400;
+}
+.tools-board__row--colors .tools-board__option--blue {
+  background-color: #4a98f7;
+}
+.tools-board__row--colors .tools-board__option--selected::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 15px;
+  width: 15px;
+  background-color: inherit;
+  border-radius: inherit;
+  border: 2px solid #fff;
+  transform: translate(-50%, -50%);
+}
+.tools-board__row--colors .tools-board__option-color {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.tools-board__clear-canvas {
+  color: #6c757d;
+  border: 1px solid #6c757d;
+  transition: all 0.3s ease;
+}
+.tools-board__clear-canvas:hover {
+  color: #fff;
+  background-color: #6c757d;
+}
+
+.tools-board__save-image {
+  background-color: #4a98f7;
+  border: 1px solid #4a98f7;
 }/*# sourceMappingURL=main.css.map */
