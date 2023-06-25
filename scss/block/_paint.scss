@@ -1,0 +1,164 @@
+.paint {
+  height: 100vh;
+}
+
+.paint__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.section {
+  background-color: #fff;
+  max-height: 700px;
+  height: 100%;
+}
+
+.draw-board {
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.draw-board__canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.tools-board {
+  max-width: 210px;
+  width: 100%;
+  flex-grow: 1;
+  padding: 15px 22px 0;
+}
+
+.tools-board__row {
+  &--colors {
+    .tools-board__options {
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.tools-board__options {
+  margin: 10px 0 0 5px;
+}
+
+.tools-board__option-name {
+  color: #5a6168;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.tools-board__option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:is(:hover, &--active) {
+    .tools-board__option-name {
+      color: #4a98f7;
+    }
+
+    img {
+      filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.tools-board__option-checkbox {
+  accent-color: var(--accent-color);
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.tools-board__option-range {
+  width: 100%;
+  height: 5px;
+  margin-top: 10px;
+}
+
+.tools-board__row--colors {
+  .tools-board__options {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tools-board__option {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-top: 3px;
+    position: relative;
+
+    &--white {
+      background-color: #fff;
+      border: 1px solid #bfbfbf;
+
+      &.tools-board__option--selected::before {
+        border-color: #ccc;
+      }
+    }
+
+    &--black {
+      background-color: #000;
+    }
+
+    &--red {
+      background-color: #e02020;
+    }
+
+    &--green {
+      background-color: #6dd400;
+    }
+
+    &--blue {
+      background-color: #4a98f7;
+    }
+
+    &--selected {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 15px;
+        width: 15px;
+        background-color: inherit;
+        border-radius: inherit;
+        border: 2px solid #fff;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .tools-board__option-color {
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+.tools-board__clear-canvas {
+  color: #6c757d;
+  border: 1px solid #6c757d;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #fff;
+    background-color: #6c757d;
+  }
+}
+
+.tools-board__save-image {
+  background-color: #4a98f7;
+  border: 1px solid #4a98f7;
+}
