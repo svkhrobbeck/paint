@@ -109,4 +109,51 @@ const startDraw = e => {
   ctx.lineWidth = brushWidth;
   snapshot = ctx.getImageData(0, 0, elCanvas.width, elCanvas.height);
 };
+
+const stopDraw = () => (isDrawing = false);
+
+// Event Listeners
+elsTools.forEach(tool =>
+  tool.addEventListener("click", () => {
+    document.querySelector(".tools-board__option--active").classList.remove("tools-board__option--active");
+    tool.classList.add("tools-board__option--active");
+    selectedTool = tool.id;
+  })
+);
+
+elsColor.forEach(color =>
+  color.addEventListener("click", () => {
+    document.querySelector(".tools-board__option--selected").classList.remove("tools-board__option--selected");
+    color.classList.add("tools-board__option--selected");
+    const bgColor = window.getComputedStyle(color).getPropertyValue("background-color");
+    selectedColor = bgColor;
+  })
+);
+
 elCanvas.addEventListener("mousedown", startDraw);
+elCanvas.addEventListener("mouseup", stopDraw);
+elCanvas.addEventListener("mousemove", drawing);
+elSizeSlider.addEventListener("change", () => (brushWidth = elSizeSlider.value));
+elClearBtn.addEventListener("click", () => {
+  ctx.clearRect(0, 0, elCanvas.width, elCanvas.height);
+});
+
+elSaveBtn.addEventListener("click", () => {
+  const elLink = document.createElement("a");
+  elLink.download = `Sukhrobbeck Paint-${Date.now()}`;
+  elLink.href = elCanvas.toDataURL();
+
+  elLink.click();
+});
+
+elColorPicker.addEventListener("change", () => {
+  selectedColor = elColorPicker.value;
+  elColorPicker.parentElement.style.backgroundColor = selectedColor;
+  elColorPicker.parentElement.click();
+});
+
+window.addEventListener("load", () => {
+  elCanvas.width = elCanvas.offsetWidth;
+  elCanvas.height = elCanvas.offsetHeight;
+  setCanvasBg();
+});
