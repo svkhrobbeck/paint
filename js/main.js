@@ -24,3 +24,11 @@ const setCanvasBg = () => {
   ctx.fillRect(0, 0, elCanvas.width, elCanvas.height);
   ctx.fillStyle = selectedColor;
 };
+
+const drawRectangle = e => {
+  if (elFillColor.checked) {
+    ctx.fillRect(e.offsetX, e.offsetY, prevMouseX - e.offsetX, prevMouseY - e.offsetY);
+  } else {
+    ctx.strokeRect(e.offsetX, e.offsetY, prevMouseX - e.offsetX, prevMouseY - e.offsetY);
+  }
+};
