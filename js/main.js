@@ -40,3 +40,10 @@ const drawCircle = e => {
 
   elFillColor.checked ? ctx.fill() : ctx.stroke();
 };
+
+const drawLine = e => {
+  ctx.beginPath();
+  ctx.moveTo(prevMouseX, prevMouseY);
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+};
