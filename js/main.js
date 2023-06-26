@@ -62,3 +62,39 @@ const drawTriangle = e => {
 
   elFillColor.checked ? ctx.fill() : ctx.stroke();
 };
+
+const drawing = e => {
+  if (!isDrawing) return;
+  ctx.putImageData(snapshot, 0, 0);
+
+  switch (selectedTool) {
+    case "brush":
+      freeDraw(e);
+      return;
+
+    case "rectangle":
+      drawRectangle(e);
+      return;
+
+    case "circle":
+      drawCircle(e);
+      return;
+
+    case "triangle":
+      drawTriangle(e);
+      return;
+
+    case "line":
+      drawLine(e);
+      return;
+
+    case "eraser":
+      const isEraser = selectedTool === "eraser" ? "#fff" : selectedColor;
+      ctx.strokeStyle = isEraser;
+      freeDraw(e);
+      return;
+
+    default:
+      return;
+  }
+};
