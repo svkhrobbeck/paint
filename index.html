@@ -8,6 +8,7 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="icons/favicon.png" />
+    <script src="js/main.js" defer></script>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/normalize.css" />
@@ -30,41 +31,47 @@
               <!-- SHAPES -->
               <label class="title">Shakllar</label>
               <ul class="tools-board__options list">
-                <li class="tools-board__option tool" data-rectangle>
+                <li class="tools-board__option tool" id="rectangle">
                   <img class="tools-board__option-img" src="icons/rectangle.svg" alt="rectangle" />
                   <span class="tools-board__option-name">To'rtburchak</span>
                 </li>
-                <li class="tools-board__option tool" data-circle>
+                <li class="tools-board__option tool" id="circle">
                   <img class="tools-board__option-img" src="icons/circle.svg" alt="circle" />
                   <span class="tools-board__option-name">Doira</span>
                 </li>
-                <li class="tools-board__option tool" data-triangle>
+                <li class="tools-board__option tool" id="triangle">
                   <img class="tools-board__option-img" src="icons/triangle.svg" alt="triangle" />
                   <span class="tools-board__option-name">Uchburchak</span>
                 </li>
-                <li class="tools-board__option" data-checkbox>
+                <li class="tools-board__option">
                   <input class="tools-board__option-checkbox" type="checkbox" id="fill-color" />
                   <label class="tools-board__option-name tools-board__option-name" for="fill-color">Rangni to'ldirish</label>
                 </li>
               </ul>
             </div>
+
             <!-- VARIANTS -->
             <div class="tools-board__row">
               <label class="title">Variantlar</label>
               <ul class="tools-board__options list">
-                <li class="tools-board__option tool tools-board__option--active" data-brush>
+                <li class="tools-board__option tool tools-board__option--active" id="brush">
                   <img class="tools-board__option-img" src="icons/brush.svg" alt="brush" />
-                  <span class="tools-board__option-name">Chizish</span>
+                  <span class="tools-board__option-name">Erkin Chizish</span>
                 </li>
-                <li class="tools-board__option tool" data-eraser>
+                <li class="tools-board__option tool" id="line">
+                  <img class="tools-board__option-img" src="icons/line.svg" alt="line" />
+                  <span class="tools-board__option-name">To'g'ri chiziq</span>
+                </li>
+                <li class="tools-board__option tool" id="eraser">
                   <img class="tools-board__option-img" src="icons/eraser.svg" alt="eraser" />
                   <span class="tools-board__option-name">O'chirg'ich</span>
                 </li>
                 <li class="tools-board__option">
-                  <input class="tools-board__option-range" type="range" data-size-slider min="1" max="30" value="5" />
+                  <input class="tools-board__option-range" type="range" id="size-slider" min="1" max="30" value="5" />
                 </li>
               </ul>
             </div>
+
             <!-- COLORS -->
             <div class="tools-board__row tools-board__row--colors">
               <label class="title">Ranglar</label>
@@ -74,14 +81,15 @@
                 <li class="tools-board__option tools-board__option--red"></li>
                 <li class="tools-board__option tools-board__option--green"></li>
                 <li class="tools-board__option tools-board__option--blue">
-                  <input class="tools-board__option-color" type="color" data-color-picker value="#4a98f7" />
+                  <input class="tools-board__option-color" type="color" id="color-picker" value="#4a98f7" />
                 </li>
               </ul>
             </div>
+
             <!-- BUTTONS -->
             <div class="tools-board__row tools-board__row--buttons">
-              <button class="button tools-board__clear-canvas">O'chirish</button>
-              <button class="button tools-board__save-image">Saqlash</button>
+              <button class="button tools-board__clear-canvas" data-clear>O'chirish</button>
+              <button class="button tools-board__save-image" data-save>Saqlash</button>
             </div>
           </section>
           <!-- /TOOLS BOARD -->
@@ -91,6 +99,5 @@
     <!-- /MAIN CONTENT -->
 
     <!-- SCRIPTS -->
-    <script src="js/main.js"></script>
   </body>
 </html>
