@@ -47,3 +47,8 @@ const drawLine = e => {
   ctx.lineTo(e.offsetX, e.offsetY);
   ctx.stroke();
 };
+
+const freeDraw = e => {
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+};
