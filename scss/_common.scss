@@ -82,3 +82,17 @@ body {
   text-transform: uppercase;
   font-weight: 600;
 }
+
+.mobile {
+  display: none;
+
+  .title {
+    margin-top: 150px;
+    text-align: center;
+    color: #fff;
+  }
+
+  @media only screen and (max-width: 992px) {
+    display: block;
+  }
+}

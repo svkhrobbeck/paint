@@ -83,6 +83,20 @@ body {
   font-weight: 600;
 }
 
+.mobile {
+  display: none;
+}
+.mobile .title {
+  margin-top: 150px;
+  text-align: center;
+  color: #fff;
+}
+@media only screen and (max-width: 992px) {
+  .mobile {
+    display: block;
+  }
+}
+
 /* CONTAINER */
 .container {
   width: 100%;
@@ -93,6 +107,12 @@ body {
 
 .paint {
   height: 100vh;
+  display: block;
+}
+@media only screen and (max-width: 992px) {
+  .paint {
+    display: none;
+  }
 }
 
 .paint__inner {
