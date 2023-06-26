@@ -17,3 +17,10 @@ let ctx = elCanvas.getContext("2d"),
   prevMouseX,
   prevMouseY,
   snapshot;
+
+// functions
+const setCanvasBg = () => {
+  ctx.fillStyle = "#fff";
+  ctx.fillRect(0, 0, elCanvas.width, elCanvas.height);
+  ctx.fillStyle = selectedColor;
+};
