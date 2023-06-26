@@ -98,3 +98,15 @@ const drawing = e => {
       return;
   }
 };
+
+const startDraw = e => {
+  isDrawing = true;
+  ctx.strokeStyle = selectedColor;
+  ctx.fillStyle = selectedColor;
+  prevMouseX = e.offsetX;
+  prevMouseY = e.offsetY;
+  ctx.beginPath();
+  ctx.lineWidth = brushWidth;
+  snapshot = ctx.getImageData(0, 0, elCanvas.width, elCanvas.height);
+};
+elCanvas.addEventListener("mousedown", startDraw);
